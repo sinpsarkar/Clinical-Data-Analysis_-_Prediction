@@ -121,4 +121,22 @@ With all the observations made from the EDA, the obvious steps would be
 **However the challenge here is** -  these steps are easier said than done for the current scenario, given that the size of the dataset is very limited (617 records). Removal / imputation of/for any record may introduce new biases. 
 However, we are in luck this time around to observe very few outliers, which <i> we can drop</i>.<br>
 For the minimum and maximum trimming of the data, we shall ignore the features NB5,NC7,NC10,NA7,NB1,NA8,NB3,NE5,NG6 and check if it helps in improving the performance of the model. If not, we shall let these be there in the model.
+From the observations made during the EDA, a linear model may not be very suitable for this classification problem. However, we shall still evaluate various models, including some linear models as well.
+
+**The challenge** - Before we dive in to tackle the challenge, let us first understand - **what is the challenge?**.
+- We have access to a very limited data
+- We can't afford to come up with an ML model with very bad performance, as a bad prediction may cost heavily in terms of life and resources
+- We can't drop records (due to outlier or anything else) or impute these from the limited records we have as this may in turn introduce some new biases, and it eventually result in more loss of data.
+
+**Approach / Solution** 
+- We carry on with the data-preprocessing steps minus outlier treatment (and treatment of max-min trimming).<br>
+- We still do the train-test split of the data.<br>
+- Because of small train dataset, the training time of a model will be very small. We use this to our advantage and evaluate many base models.
+- Evaluate the performance of the base models using K-Fold cross-validation on the train split of the dataset.<br>
+- Pick the model(s) with best performance.<br>
+- Do the Hypermeter tuning for these selected models.<br>
+- Train these models on the train split of the datset.<br>
+- Do the predictions on test dataset. We can use the Confusion Matrix here to decide on to the final model.
+
+## Data Pre-processing
 
