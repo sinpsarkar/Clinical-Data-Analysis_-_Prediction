@@ -1,6 +1,7 @@
 # Analysis of clinical data of patients and prediction of potentialilty of disease
 
-![Header Image](https://github.com/sinpsarkar/Clinical-Data-Analysis_-_Prediction/assets/45538409/29dca4bf-804e-4e79-b922-f317f2b2053b)
+![Header Image](https://github.com/sinpsarkar/Clinical-Data-Analysis_-_Prediction/assets/45538409/81fbaf36-1985-4f48-be69-a43512366dd5)
+
 ## Background
 Machine learning and artificial intelligence endeavours to infer knowledge from raw data, concerned with development of algorithms and provides actionable recommendations to help researchers and health institutes flag, predict and prevent risks associated with clinical research. Machine learning in healthcare is a growing field of research in precision medicine with many potential applications. As patient data becomes more readily available, machine learning in healthcare will become increasingly important to healthcare professionals and health systems for extracting meaning from medical information.  
 
@@ -23,7 +24,8 @@ Also, in this analysis and prediction, the cost of False Negative (predicting no
 With these considerations, F1 score is a metric of choice in this case.
 F1 Score is calculated as the Harmonic-Mean of Precision and Recall. It is formulated as below:
 
-![f1 score](https://github.com/sinpsarkar/Clinical-Data-Analysis_-_Prediction/assets/45538409/29acd334-b699-4689-aabf-98ce0a74cdbe)
+![image](https://github.com/sinpsarkar/Clinical-Data-Analysis_-_Prediction/assets/45538409/782f6a99-b720-4c78-8879-d62217a81892)
+
 
 ## The Data : Exploratory Data Analysis
 
@@ -42,7 +44,8 @@ Due to security pertaining to medical data, the data available for analysis and 
 
 > <ins>Data Definitions</ins>:
 The dataset **train.csv** has **617 rows** **56 columns** (including target)<br>
-![df_train_shape](https://github.com/sinpsarkar/Clinical-Data-Analysis_-_Prediction/assets/45538409/a49d246a-e6ed-4cf1-9290-2cdda9870e0d)
+
+![df_train_shape](https://github.com/sinpsarkar/Clinical-Data-Analysis_-_Prediction/assets/45538409/5ee6a6bb-efe9-4086-9211-610b5be34481)
 
 > <ins>Continuous/ Numerical Features</ins> : 55 <br>
 NA1, NA2, NA3, NA4, NA5, NA6, NA7, NA8, <br>
@@ -61,41 +64,39 @@ Class
 
 > <ins>A Look at the data</ins>
 
-![image](https://github.com/sinpsarkar/Clinical-Data-Analysis_-_Prediction/assets/45538409/c4236843-726d-4621-9c67-000508aed4d9)
+![image](https://github.com/sinpsarkar/Clinical-Data-Analysis_-_Prediction/assets/45538409/986f9141-8d5d-48b9-befa-21db82499000)
+
 
 > <ins>Statistical Summary of data</ins>
 
-![image](https://github.com/sinpsarkar/Clinical-Data-Analysis_-_Prediction/assets/45538409/b509609a-51f8-49d2-8675-9887fc99c30e)
-
+![image](https://github.com/sinpsarkar/Clinical-Data-Analysis_-_Prediction/assets/45538409/a15a1a56-8ffe-4758-bdac-b1e7b6c8df77)
 
 > <ins>Check for missing values in the data</ins>
 
-![image](https://github.com/sinpsarkar/Clinical-Data-Analysis_-_Prediction/assets/45538409/aea8115a-5ebb-4bf4-83a4-4b1058c5a163)
+![image](https://github.com/sinpsarkar/Clinical-Data-Analysis_-_Prediction/assets/45538409/8b9f5bfe-080f-4b60-9e27-80d56b6c4ee6)
 
 > <ins>Different Categories and distribution for Categorical Feature</ins>
 
-![image](https://github.com/sinpsarkar/Clinical-Data-Analysis_-_Prediction/assets/45538409/09a6966d-8aa6-4a1f-8b40-a3ead5d48ede)
+![image](https://github.com/sinpsarkar/Clinical-Data-Analysis_-_Prediction/assets/45538409/0bce5ef3-93f1-42f4-9540-b0640ab27e74)
 
-![image](https://github.com/sinpsarkar/Clinical-Data-Analysis_-_Prediction/assets/45538409/c00401be-25e2-4e25-a0aa-228c76e24d00)
-
-
+![image](https://github.com/sinpsarkar/Clinical-Data-Analysis_-_Prediction/assets/45538409/ee5ce153-0a0c-4dca-8e41-30d004475125)
 
 > <ins>Plot for the Target Variable</ins>
 
-![image](https://github.com/sinpsarkar/Clinical-Data-Analysis_-_Prediction/assets/45538409/84a7d343-38f3-4137-ac4b-5a19b93d229f)
+![image](https://github.com/sinpsarkar/Clinical-Data-Analysis_-_Prediction/assets/45538409/b2edc380-7dd8-4eb0-8735-ac562f9e311e)
+
 
 > <ins>Plots for Continuous Variables</ins>
 
-![image](https://github.com/sinpsarkar/Clinical-Data-Analysis_-_Prediction/assets/45538409/d37ba9e9-9634-40b6-94f0-108c8dc911fa)
+![image](https://github.com/sinpsarkar/Clinical-Data-Analysis_-_Prediction/assets/45538409/b8d82618-a012-4814-bb40-bb91957f4fe9)
 
 > <ins>TSNE Plot to check for clusters</ins>
 
-![image](https://github.com/sinpsarkar/Clinical-Data-Analysis_-_Prediction/assets/45538409/fdd157d9-0d7e-4921-afb5-09ed6e0d4543)
+![image](https://github.com/sinpsarkar/Clinical-Data-Analysis_-_Prediction/assets/45538409/12f285ff-ca3a-444e-bd31-e747f3a54172)
 
 > <ins>Correlation among different features</ins>
 
-![image](https://github.com/sinpsarkar/Clinical-Data-Analysis_-_Prediction/assets/45538409/44d40513-9872-47a3-81ea-4d5dad93c8ff)
-
+![image](https://github.com/sinpsarkar/Clinical-Data-Analysis_-_Prediction/assets/45538409/f7a51d31-45a8-49eb-b81a-8c85f600735b)
 
 ## **Observations from the EDA**:
 - Some features have null/missing values
@@ -172,15 +173,15 @@ Our base models to evaluate on:
 
 We used **RepeatedStratifiedKFold(n_splits=5, n_repeats=5)** to evaluate the base models on using the **f1** scoring. Below are the results:
 
-![image](https://github.com/sinpsarkar/Clinical-Data-Analysis_-_Prediction/assets/45538409/0fecc330-e8df-4af0-bc8c-574dc6b65c41)
-
+![image](https://github.com/sinpsarkar/Clinical-Data-Analysis_-_Prediction/assets/45538409/00a18236-5cf4-41fa-9bac-5266e6bc360b)
 
 As we observe from the evaluation, **Light GBM** and **XGBoost** perform the best withough hyperparameter tuning.<br>
 We used **RandomizedSearchCV** for the hyperparameter tuning of these models using **f1** scoring.<br>
 We used the best hyper-parameters obtained in the last step to train on train split of the data.<br>
 Below are the confusion matrix we got on applying these models on the tes split of the data.
 
-![image](https://github.com/sinpsarkar/Clinical-Data-Analysis_-_Prediction/assets/45538409/019f9344-b78e-4cd6-b834-b96e147732ba)
+![image](https://github.com/sinpsarkar/Clinical-Data-Analysis_-_Prediction/assets/45538409/ce3ec11c-9f33-459b-b4ef-d1363bbd5b1d)
+
 
 ## Conclusion
 
@@ -188,6 +189,7 @@ We were able to achieve and **f1 Score** of **0.8** approximately for both the m
 
 This was a very exciting project. We were able to help in providing a solution for predicting the potentiality of a disease in a patient.
 
+![image](https://github.com/sinpsarkar/Clinical-Data-Analysis_-_Prediction/assets/45538409/855d02ad-ee38-48f6-8959-f1114c7ae708)
 
-![image](https://github.com/sinpsarkar/Clinical-Data-Analysis_-_Prediction/assets/45538409/b6397b4b-2dfe-4698-8b60-8fc7f561a353)
+
 
