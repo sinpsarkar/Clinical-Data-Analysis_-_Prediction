@@ -140,3 +140,41 @@ From the observations made during the EDA, a linear model may not be very suitab
 
 ## Data Pre-processing
 
+To prepare the data for the models, we do the following pre-processing:
+
+**NOTE** - To avoid leaking of information to the test split, we do the train-test split before applying any other method to the data. However, we shall need to do encoding of categorical variables for the test split as well.
+
+ - **Train-Test Split** - Using test-size = 25%.
+
+
+- **Null Value Treatment** - Impute the missing values with the feature median. We also used KnnImputer and feature mean to impute the missing values, however, the models seemed to give better score for imputation done with feature median.
+
+- **Transformation** - in EDA, we observed that for some of the features the data was skewed, or the data was concentrated over a very small range of values. We tried log transformation and square transformation for these features and used these new features during the evaluation. However, we didn't observe a significant improvement in the scores of the models. Hence, we discarded the changes.
+
+- **Encoding Categorical Variables** - for the categorical feature **CE1**. As the feature only has 2 unique values, so we used **LabelEncoder**. Though the best choice would have been **one-hot encoding** to avoid accidental introduction of <i>ordinality</i>, which LabelEncoder may introduce. But let us evaluate the models with LabelEncoder for now.
+
+- **Standardization** - StandardScaler used to standardize all the features to a common scale.
+
+## The Model
+
+Our base models to evaluate on:
+- LogisticRegression
+- KNeighborsClassifier
+- SVC
+- DecisionTreeClassifier
+- RandomForestClassifier
+- LGBMClassifier
+- VotingClassifier
+- XGBClassifier
+- GaussianNB
+- BaggingClassifier
+
+
+We used **RepeatedStratifiedKFold(n_splits=5, n_repeats=5)** to evaluate the base models on using the **f1** scoring. Below are the results:
+
+![Alt text](image.png)
+
+As we observe from the evaluation, **Light GBM** and **XGBoost** perform the best withough hyperparameter tuning.<br>
+We used **RandomizedSearchCV** for the hyperparameter tuning of these models using **f1** scoring.<br>
+We used the best hyper-parameters obtained in the last step to train on train split of the data.<br>
+Below are the confusion matrix we got on applying these models on the tes split of the data.
