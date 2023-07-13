@@ -172,9 +172,22 @@ Our base models to evaluate on:
 
 We used **RepeatedStratifiedKFold(n_splits=5, n_repeats=5)** to evaluate the base models on using the **f1** scoring. Below are the results:
 
-![Alt text](image.png)
+![image](https://github.com/sinpsarkar/Clinical-Data-Analysis_-_Prediction/assets/45538409/0fecc330-e8df-4af0-bc8c-574dc6b65c41)
+
 
 As we observe from the evaluation, **Light GBM** and **XGBoost** perform the best withough hyperparameter tuning.<br>
 We used **RandomizedSearchCV** for the hyperparameter tuning of these models using **f1** scoring.<br>
 We used the best hyper-parameters obtained in the last step to train on train split of the data.<br>
 Below are the confusion matrix we got on applying these models on the tes split of the data.
+
+![image](https://github.com/sinpsarkar/Clinical-Data-Analysis_-_Prediction/assets/45538409/019f9344-b78e-4cd6-b834-b96e147732ba)
+
+## Conclusion
+
+We were able to achieve and **f1 Score** of **0.8** approximately for both the models **XGBoost** and **Light GBM**. And as the confusion matrix shows, both the models show similar results. We can use either of them for predictions.
+
+This was a very exciting project. We were able to help in providing a solution for predicting the potentiality of a disease in a patient.
+
+
+![image](https://github.com/sinpsarkar/Clinical-Data-Analysis_-_Prediction/assets/45538409/b6397b4b-2dfe-4698-8b60-8fc7f561a353)
+
