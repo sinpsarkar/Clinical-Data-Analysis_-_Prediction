@@ -102,6 +102,7 @@ Class
 - Some features have null/missing values
 - We observe Right Skewness in almost all the features
 - The Categorical Feature **CE1** only has 2 categories - **A** and **B**
+- The Target is highly imbalanced with only **17.5%** data with **Class 1**.
 - Spike observed at beginning for feature - **NA8**<br>
 - Different spikes for Class 0 & 1 observed for feature - **NB3**<br>
 - Uniform distribution observed for Class 0 only (not Class 1) for feature - **NB5**<br>
